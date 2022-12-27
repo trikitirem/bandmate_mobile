@@ -27,7 +27,7 @@ class HttpService {
   }
 
   Future<Map<String, dynamic>> getData(String path) async {
-    var response = await http.get(_url(path));
+    var response = await http.get(_url(path), headers: await _headers());
     return _respond(response);
   }
 

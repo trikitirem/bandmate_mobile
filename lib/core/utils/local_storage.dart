@@ -1,14 +1,39 @@
-// ignore: import_of_legacy_library_into_null_safe
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:mobile/core/models/musician/musician.dart';
+import 'package:mobile/core/models/tokens.dart';
 
-const _kTokenKey = "token";
+class CacheKeys {
+  static String tokens = "tokens";
+  static String you = "you";
+}
 
-Future saveToken(String token) async {
-  final SharedPreferences prefs = await SharedPreferences.getInstance();
-  prefs.setString(_kTokenKey, token);
+initHive() async {
+  await Hive.initFlutter();
+  Hive.registerAdapter(MusicianAdapter());
+  Hive.registerAdapter(TokensAdapter());
+}
+
+hiveDispose() {
+  Hive.box(CacheKeys.tokens).close();
+  Hive.box(CacheKeys.you).close();
+}
+
+cacheToken(String token) async {
+  var box = await Hive.openBox<Tokens>(CacheKeys.tokens);
+  box.put(CacheKeys.tokens, Tokens(token));
+  box.close();
 }
 
 Future<String> readToken() async {
-  final SharedPreferences prefs = await SharedPreferences.getInstance();
-  return prefs.getString(_kTokenKey) ?? "";
+  var box = await Hive.openBox<Tokens>(CacheKeys.tokens);
+  var token = box.get(CacheKeys.tokens, defaultValue: const Tokens(''))!.token;
+  box.close();
+
+  return token;
+}
+
+cacheYou(Musician you) async {
+  var box = await Hive.openBox<Musician>(CacheKeys.you);
+  box.put(CacheKeys.you, you);
+  box.close();
 }

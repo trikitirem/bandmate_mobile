@@ -5,11 +5,14 @@ import 'package:provider/provider.dart';
 import '../../../core/api/http_service.dart';
 import '../../../core/api/routes.dart';
 import '../../../core/errors/errors.dart';
-import '../../../core/models/musician.dart';
+import '../../../core/models/musician/musician.dart';
 import '../../../core/utils/local_storage.dart';
 import '../../home/provider/user_provider.dart';
 
 class LoginProvider with ChangeNotifier {
+  LoginProvider(this._context);
+
+  final BuildContext _context;
   final HttpService _httpService = HttpService();
 
   // ignore: prefer_final_fields
@@ -19,8 +22,7 @@ class LoginProvider with ChangeNotifier {
   String? _errorMessage;
   String? get errorMessage => _errorMessage;
 
-  Future login(
-      BuildContext context, Login login, VoidCallback onSuccess) async {
+  Future login(Login login, VoidCallback onSuccess) async {
     final body = login.toJson();
     try {
       _errorMessage = null;
@@ -31,14 +33,14 @@ class LoginProvider with ChangeNotifier {
 
       var you = Musician.fromJson(response['musician']);
       // ignore: use_build_context_synchronously
-      context.read<UserProvider>().setUser(you);
+      _context.read<UserProvider>().setUser(you);
 
-      await saveToken(response['token']);
+      await cacheToken(response['token']);
+      await cacheYou(you);
 
       onSuccess.call();
     } on ApiException catch (e) {
       _errorMessage = e.cause;
-
       _loading = false;
       notifyListeners();
     } catch (err) {
