@@ -57,7 +57,7 @@ Musician _$MusicianFromJson(Map<String, dynamic> json) => Musician(
     );
 
 Map<String, dynamic> _$MusicianToJson(Musician instance) => <String, dynamic>{
-      'id': instance.id,
+      '_id': instance.id,
       'name': instance.name,
       'about': instance.about,
     };

@@ -14,6 +14,7 @@ class RegisterProvider with ChangeNotifier {
 
   final BuildContext _context;
   final HttpService _httpService = HttpService();
+  Register form = Register();
 
   bool? _loading;
   bool? get loading => _loading;
@@ -21,8 +22,18 @@ class RegisterProvider with ChangeNotifier {
   String? _errorMessage;
   String? get errorMessage => _errorMessage;
 
-  Future register(Register register, VoidCallback onSuccess) async {
-    final body = register.toJson();
+  void setInstruments(List<String> instruments) {
+    form.about.instruments = instruments;
+    notifyListeners();
+  }
+
+  void setGenres(List<String> genres) {
+    form.about.genres = genres;
+    notifyListeners();
+  }
+
+  Future register(VoidCallback onSuccess) async {
+    final body = form.toJson();
     try {
       _errorMessage = null;
       _loading = true;

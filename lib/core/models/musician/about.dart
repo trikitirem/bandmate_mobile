@@ -5,15 +5,15 @@ part 'about.g.dart';
 
 @JsonSerializable()
 class About {
-  const About({
+  About({
     required this.genres,
     required this.instruments,
     this.description,
   });
 
-  final List<String> genres;
-  final List<String> instruments;
-  final String? description;
+  List<String> genres;
+  List<String> instruments;
+  String? description;
 
   factory About.fromJson(Map<String, dynamic> json) => _$AboutFromJson(json);
 
