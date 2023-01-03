@@ -3,6 +3,7 @@ import "package:provider/provider.dart";
 import '../../../home/view/home_screen.dart';
 import '../../provider/welcome_provider.dart';
 import 'user_not_present.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class WelcomeComponent extends StatefulWidget {
   const WelcomeComponent({super.key});
@@ -30,10 +31,11 @@ class _WelcomeComponentState extends State<WelcomeComponent> {
   @override
   Widget build(BuildContext context) {
     final welcomeProvider = context.watch<WelcomeProvider>();
+    final localizations = AppLocalizations.of(context)!;
 
     if (welcomeProvider.loading) {
-      return const Center(
-        child: Text("Loading..."),
+      return Center(
+        child: Text(localizations.core_loading),
       );
     }
 

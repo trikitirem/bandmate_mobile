@@ -73,13 +73,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           style: TextStyle(color: Colors.black54),
                         ),
                         FormTextInput(
-                          hintText: "email",
+                          hintText: "email*",
                           onChanged: (value) => setState(() {
                             _formData.contact.email = value ?? "";
                           }),
                         ),
                         FormTextInput(
-                          hintText: "password",
+                          hintText: "password*",
                           obscure: true,
                           onChanged: (value) => setState(() {
                             _formData.password = value ?? "";

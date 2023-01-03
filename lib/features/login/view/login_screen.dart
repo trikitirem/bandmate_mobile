@@ -5,6 +5,7 @@ import '../models/login.dart';
 import '../provider/login_provider.dart';
 import '../../../core/components/input/button.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -19,6 +20,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final localizations = AppLocalizations.of(context)!;
+
     return Scaffold(
       body: ChangeNotifierProvider(
         create: (constext) => LoginProvider(context),
@@ -33,13 +36,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    const Hero(
+                    Hero(
                       tag: "title",
                       child: Material(
                         child: Text(
-                          "Login to BandMate",
+                          localizations.login_title,
                           textAlign: TextAlign.left,
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 20.0,
                           ),
                         ),
@@ -49,13 +52,13 @@ class _LoginScreenState extends State<LoginScreen> {
                       height: 16.0,
                     ),
                     FormTextInput(
-                      hintText: "email",
+                      hintText: localizations.login_input_hint_email,
                       onChanged: (value) => setState(() {
                         _formData.email = value ?? "";
                       }),
                     ),
                     FormTextInput(
-                      hintText: "password",
+                      hintText: localizations.login_input_hint_password,
                       obscure: true,
                       onChanged: (value) => setState(() {
                         _formData.password = value ?? "";
@@ -82,8 +85,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   left: 0,
                   right: 0,
                   child: Button(
-                    label:
-                        loginProvider.loading == true ? "Loading..." : "Login",
+                    label: loginProvider.loading == true
+                        ? localizations.core_loading
+                        : localizations.login_button,
                     onClick: () => context.read<LoginProvider>().login(
                       _formData,
                       () {

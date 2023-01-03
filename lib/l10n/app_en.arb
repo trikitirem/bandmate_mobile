@@ -1,0 +1,10 @@
+{
+    "core_loading": "Loading...",
+    "welcome_title": "BandMate",
+    "welcome_button_login": "Login",
+    "welcome_button_register": "Register",
+    "login_title": "Welcome to BandMate",
+    "login_input_hint_email": "Email",
+    "login_input_hint_password": "Password",
+    "login_button": "Login"
+}
