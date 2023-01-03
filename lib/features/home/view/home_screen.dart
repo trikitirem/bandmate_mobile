@@ -41,9 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
           });
         },
       ),
-      body: SafeArea(
-        child: displayCurrentScreen(),
-      ),
+      body: displayCurrentScreen(),
     );
   }
 }

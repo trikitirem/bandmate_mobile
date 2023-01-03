@@ -41,6 +41,6 @@ class _WelcomeComponentState extends State<WelcomeComponent> {
       return const UserNotPresent();
     }
 
-    return Scaffold(body: Container());
+    return Container();
   }
 }

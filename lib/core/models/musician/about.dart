@@ -1,20 +1,21 @@
 // ignore: depend_on_referenced_packages
 import 'package:json_annotation/json_annotation.dart';
 
-part 'interests.g.dart';
+part 'about.g.dart';
 
 @JsonSerializable()
-class Interests {
-  const Interests({
+class About {
+  const About({
     required this.genres,
     required this.instruments,
+    this.description,
   });
 
   final List<String> genres;
   final List<String> instruments;
+  final String? description;
 
-  factory Interests.fromJson(Map<String, dynamic> json) =>
-      _$InterestsFromJson(json);
+  factory About.fromJson(Map<String, dynamic> json) => _$AboutFromJson(json);
 
-  Map<String, dynamic> toJson() => _$InterestsToJson(this);
+  Map<String, dynamic> toJson() => _$AboutToJson(this);
 }

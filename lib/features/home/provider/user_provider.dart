@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/features/register/model/post_register.dart';
 import '../../../core/models/musician/musician.dart';
 
 class UserProvider with ChangeNotifier {

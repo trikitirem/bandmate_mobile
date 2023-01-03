@@ -1,7 +1,7 @@
 import 'package:hive/hive.dart';
 // ignore: depend_on_referenced_packages
 import 'package:json_annotation/json_annotation.dart';
-import 'package:mobile/core/models/musician/interests.dart';
+import 'package:mobile/core/models/musician/about.dart';
 
 import 'name.dart';
 
@@ -13,7 +13,7 @@ class Musician {
   Musician(
     this.id,
     this.name,
-    this.interests,
+    this.about,
   );
 
   @HiveField(0)
@@ -23,7 +23,7 @@ class Musician {
   Name name;
 
   @HiveField(2)
-  Interests interests;
+  About about;
 
   factory Musician.fromJson(Map<String, dynamic> json) =>
       _$MusicianFromJson(json);

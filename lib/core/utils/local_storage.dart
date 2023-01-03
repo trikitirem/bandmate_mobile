@@ -13,11 +13,6 @@ initHive() async {
   Hive.registerAdapter(TokensAdapter());
 }
 
-hiveDispose() {
-  Hive.box(CacheKeys.tokens).close();
-  Hive.box(CacheKeys.you).close();
-}
-
 cacheToken(String token) async {
   var box = await Hive.openBox<Tokens>(CacheKeys.tokens);
   box.put(CacheKeys.tokens, Tokens(token));
@@ -33,7 +28,7 @@ Future<String> readToken() async {
 }
 
 cacheYou(Musician you) async {
-  var box = await Hive.openBox<Musician>(CacheKeys.you);
-  box.put(CacheKeys.you, you);
-  box.close();
+  // var box = await Hive.openBox<Musician>(CacheKeys.you);
+  // box.put(CacheKeys.you, you);
+  // box.close();
 }

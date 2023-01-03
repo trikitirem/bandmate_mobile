@@ -9,9 +9,11 @@ class WelcomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => WelcomeProvider(context),
-      child: const WelcomeComponent(),
+    return Scaffold(
+      body: ChangeNotifierProvider(
+        create: (context) => WelcomeProvider(context),
+        child: const WelcomeComponent(),
+      ),
     );
   }
 }

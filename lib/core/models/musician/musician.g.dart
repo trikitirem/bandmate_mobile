@@ -19,7 +19,7 @@ class MusicianAdapter extends TypeAdapter<Musician> {
     return Musician(
       fields[0] as String,
       fields[1] as Name,
-      fields[2] as Interests,
+      fields[2] as About,
     );
   }
 
@@ -32,7 +32,7 @@ class MusicianAdapter extends TypeAdapter<Musician> {
       ..writeByte(1)
       ..write(obj.name)
       ..writeByte(2)
-      ..write(obj.interests);
+      ..write(obj.about);
   }
 
   @override
@@ -51,13 +51,13 @@ class MusicianAdapter extends TypeAdapter<Musician> {
 // **************************************************************************
 
 Musician _$MusicianFromJson(Map<String, dynamic> json) => Musician(
-      json['id'] as String,
+      json['_id'] as String,
       Name.fromJson(json['name'] as Map<String, dynamic>),
-      Interests.fromJson(json['interests'] as Map<String, dynamic>),
+      About.fromJson(json['about'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$MusicianToJson(Musician instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
-      'interests': instance.interests,
+      'about': instance.about,
     };
