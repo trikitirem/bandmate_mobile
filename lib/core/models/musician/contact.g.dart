@@ -19,12 +19,8 @@ Map<String, dynamic> _$PhoneNumberToJson(PhoneNumber instance) =>
 
 Contact _$ContactFromJson(Map<String, dynamic> json) => Contact(
       email: json['email'] as String,
-      phoneNumber: json['phoneNumber'] == null
-          ? null
-          : PhoneNumber.fromJson(json['phoneNumber'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$ContactToJson(Contact instance) => <String, dynamic>{
       'email': instance.email,
-      'phoneNumber': instance.phoneNumber,
     };

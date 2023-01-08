@@ -20,11 +20,9 @@ class PhoneNumber {
 class Contact {
   Contact({
     required this.email,
-    this.phoneNumber,
   });
 
   String email = "";
-  PhoneNumber? phoneNumber;
 
   factory Contact.fromJson(Map<String, dynamic> json) =>
       _$ContactFromJson(json);

@@ -22,7 +22,10 @@ class MusicianCard extends StatelessWidget {
             children: [
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.6,
-                child: const MusicianPhotos(),
+                child: MusicianPhotos(
+                  name: musician.name,
+                  description: musician.about.description,
+                ),
               ),
               MusicianAbout(about: musician.about, name: musician.name),
               const SizedBox(

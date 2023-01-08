@@ -21,24 +21,6 @@ class MusicianAbout extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text(
-            "${name.firstName} ${name.lastName ?? ""}",
-            style: const TextStyle(
-              fontSize: 25.0,
-            ),
-          ),
-          const SizedBox(height: 16.0),
-          about.description != null
-              ? Padding(
-                  padding: const EdgeInsets.only(bottom: 16.0),
-                  child: Text(
-                    about.description!,
-                    style: const TextStyle(
-                      fontSize: 18.0,
-                    ),
-                  ),
-                )
-              : Container(),
           InterestsRow(items: about.instruments),
           const SizedBox(height: 8.0),
           InterestsRow(items: about.genres),

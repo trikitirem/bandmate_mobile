@@ -53,7 +53,7 @@ class RegisterProvider with ChangeNotifier {
 
       _loading = false;
       notifyListeners();
-    } catch (err) {
+    } catch (e) {
       _errorMessage = CommonErrors.unknownError;
 
       _loading = false;

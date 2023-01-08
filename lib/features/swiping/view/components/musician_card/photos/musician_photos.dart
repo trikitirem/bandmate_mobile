@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/features/swiping/view/components/musician_card/photos/change_photo_button.dart';
 
+import '../../../../../../core/models/musician/name.dart';
+
 const _photosLinks = <String>[
   "https://kulturalnemedia.pl/wp-content/uploads/2018/08/splash.jpg",
   "https://www.nme.com/wp-content/uploads/2022/09/NME-HERO-BMTH-1@2560x1625.jpg",
@@ -15,7 +17,10 @@ const borderRadius = BorderRadius.only(
 );
 
 class MusicianPhotos extends StatefulWidget {
-  const MusicianPhotos({super.key});
+  const MusicianPhotos({super.key, required this.name, this.description});
+
+  final Name name;
+  final String? description;
 
   @override
   State<MusicianPhotos> createState() => _MusicianPhotosState();
@@ -45,14 +50,43 @@ class _MusicianPhotosState extends State<MusicianPhotos> {
       children: [
         Material(
           elevation: 2,
-          borderRadius: borderRadius,
-          child: ClipRRect(
-            borderRadius: borderRadius,
-            child: Image.network(
-              _photosLinks[_currentPhoto],
-              fit: BoxFit.cover,
-              height: MediaQuery.of(context).size.height,
-            ),
+          child: Image.network(
+            _photosLinks[_currentPhoto],
+            fit: BoxFit.cover,
+            height: MediaQuery.of(context).size.height,
+          ),
+        ),
+        Positioned(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: _currentPhoto == 0
+                ? Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Text(
+                        "${widget.name.firstName} ${widget.name.lastName ?? ""}",
+                        style: const TextStyle(
+                          fontSize: 25.0,
+                          color: Colors.white,
+                        ),
+                      ),
+                      const SizedBox(height: 16.0),
+                      widget.description != null
+                          ? Padding(
+                              padding: const EdgeInsets.only(bottom: 16.0),
+                              child: Text(
+                                widget.description!,
+                                style: const TextStyle(
+                                  fontSize: 18.0,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            )
+                          : Container(),
+                    ],
+                  )
+                : Container(),
           ),
         ),
         SizedBox(

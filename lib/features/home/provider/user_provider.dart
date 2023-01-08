@@ -9,4 +9,8 @@ class UserProvider with ChangeNotifier {
     _musician = musician;
     notifyListeners();
   }
+
+  logOut() async {
+    _musician = null;
+  }
 }

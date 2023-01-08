@@ -13,6 +13,14 @@ initHive() async {
   Hive.registerAdapter(TokensAdapter());
 }
 
+userLogOut() async {
+  var box = await Hive.openBox<Tokens>(CacheKeys.tokens);
+  box.clear();
+  box.close();
+
+  //TODO: remove cached user when
+}
+
 cacheToken(String token) async {
   var box = await Hive.openBox<Tokens>(CacheKeys.tokens);
   box.put(CacheKeys.tokens, Tokens(token));

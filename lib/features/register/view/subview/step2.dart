@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/core/components/input/multi_select/multi_select.dart';
 import 'package:mobile/core/components/input/text_area.dart';
+import 'package:mobile/core/components/text/error_message.dart';
+import 'package:mobile/features/home/view/home_screen.dart';
 import 'package:mobile/features/register/types/lists.dart';
 import 'package:provider/provider.dart';
 import '../../../../core/components/input/button.dart';
@@ -70,6 +72,9 @@ class RegisterStep2 extends StatelessWidget {
                 selectedItems: form.about.genres,
                 onClick: (newGenres) => registerProvider.setGenres(newGenres),
               ),
+              ErrorMessage(
+                errorMessage: registerProvider.errorMessage,
+              ),
               const SizedBox(
                 height: 48.0,
               ),
@@ -88,8 +93,12 @@ class RegisterStep2 extends StatelessWidget {
                 const SizedBox(width: 8.0),
                 Expanded(
                   child: Button(
-                    label: localizations.register_step2_submit,
-                    onClick: () => setStep(RegisterSteps.step2),
+                    label: registerProvider.loading == true
+                        ? localizations.core_loading
+                        : localizations.register_step2_submit,
+                    onClick: () => registerProvider.register(() =>
+                        Navigator.of(context).pushNamedAndRemoveUntil(
+                            HomeScreen.path, (route) => false)),
                   ),
                 ),
               ],
