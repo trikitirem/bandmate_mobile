@@ -31,7 +31,7 @@ class MusicianCard extends StatelessWidget {
               ),
               MusicianAbout(about: musician.about, name: musician.name),
               const SizedBox(
-                height: 76.0,
+                height: 84.0,
               )
             ],
           ),

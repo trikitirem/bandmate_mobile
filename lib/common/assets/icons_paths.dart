@@ -5,4 +5,5 @@ class IconPaths {
   static String group = "assets/icons/group.svg";
   static String user = "assets/icons/user.svg";
   static String close = "assets/icons/close.svg";
+  static String search = "assets/icons/search.svg";
 }

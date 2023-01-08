@@ -2,6 +2,7 @@
     "@common": {},
     "common_loading": "Loading...",
     "common_next_step": "Next step",
+    "common_search": "search...",
     "@WELCOME_SCREEN": {},
     "welcome_title": "BandMate",
     "welcome_button_login": "Login",
@@ -26,5 +27,10 @@
     "register_step2_music_about": "...and something about music stuff",
     "register_step2_music_about_instruments": "Select instruments you play",
     "register_step2_music_about_genres": "Select genres you like",
-    "register_step2_submit": "Register"
+    "register_step2_submit": "Register",
+    "@INBOX_SCREEN": {},
+    "inbox_title": "Inbox",
+    "inbox_new_matches": "Matches",
+    "inbox_messages": "Messages",
+    "inbox_messages_new": " new"
 }

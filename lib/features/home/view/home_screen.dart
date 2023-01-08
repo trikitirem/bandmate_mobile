@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/features/home/view/components/bottom_navigation.dart';
+import 'package:mobile/features/inbox/view/inbox_screen.dart';
 import 'package:mobile/features/profile/view/profile_screen.dart';
 import 'package:mobile/features/swiping/view/swiping_screen.dart';
 
@@ -18,6 +19,8 @@ class _HomeScreenState extends State<HomeScreen> {
     switch (_currentScreenIndex) {
       case 0:
         return const SwipingScreen();
+      case 1:
+        return const InboxScreen();
       case 3:
         return const ProfileScreen();
       default:

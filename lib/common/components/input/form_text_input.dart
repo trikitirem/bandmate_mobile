@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'input_decoration.dart';
+import 'package:mobile/common/theme/color_palette.dart';
 
 class FormTextInput extends StatelessWidget {
   const FormTextInput({
@@ -9,25 +8,49 @@ class FormTextInput extends StatelessWidget {
     required this.onChanged,
     this.obscure,
     this.initialValue,
+    this.icon,
   });
 
   final String? hintText;
   final void Function(String? value) onChanged;
   final bool? obscure;
   final String? initialValue;
+  final Widget? icon;
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      initialValue: initialValue,
-      cursorColor: Colors.black,
-      decoration: InputDecoration(
-        hintText: hintText,
-        border: kInputBorder,
-        focusedBorder: kInputBorderFocused,
+    return Container(
+      decoration: BoxDecoration(
+        color: GreyPalette.backgroundGrey,
+        borderRadius: BorderRadius.circular(16.0),
       ),
-      onChanged: onChanged,
-      obscureText: obscure ?? false,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            icon != null ? icon! : Container(),
+            icon != null
+                ? const SizedBox(
+                    width: 16.0,
+                  )
+                : Container(),
+            Flexible(
+              child: TextFormField(
+                initialValue: initialValue,
+                cursorColor: Colors.black,
+                decoration: InputDecoration(
+                  hintText: hintText,
+                  border: InputBorder.none,
+                  focusedBorder: InputBorder.none,
+                ),
+                onChanged: onChanged,
+                obscureText: obscure ?? false,
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
