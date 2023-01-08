@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import '../../../core/api/http_service.dart';
-import '../../../core/api/routes.dart';
-import '../../../core/errors/errors.dart';
-import '../../../core/errors/exceptions.dart';
-import '../../../core/models/musician/musician.dart';
-import '../../../core/utils/local_storage.dart';
+import '../../../common/api/http_service.dart';
+import '../../../common/api/routes.dart';
+import '../../../common/errors/errors.dart';
+import '../../../common/errors/exceptions.dart';
+import '../../../common/models/musician/musician.dart';
+import '../../../common/utils/local_storage.dart';
 import '../../home/provider/user_provider.dart';
 import '../model/register.dart';
 import 'package:provider/provider.dart';

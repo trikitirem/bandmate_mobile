@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/core/api/http_service.dart';
-import 'package:mobile/core/api/routes.dart';
-import 'package:mobile/core/errors/exceptions.dart';
-import 'package:mobile/core/models/musician/musician.dart';
+import 'package:mobile/common/api/http_service.dart';
+import 'package:mobile/common/api/routes.dart';
+import 'package:mobile/common/errors/exceptions.dart';
+import 'package:mobile/common/models/musician/musician.dart';
 
-import '../../../core/errors/errors.dart';
+import '../../../common/errors/errors.dart';
 
 class SwipingProvider with ChangeNotifier {
   final HttpService _httpService = HttpService();

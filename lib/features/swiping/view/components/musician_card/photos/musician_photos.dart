@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/features/swiping/view/components/musician_card/photos/change_photo_button.dart';
 
-import '../../../../../../core/models/musician/name.dart';
+import '../../../../../../common/models/musician/name.dart';
 
 const _photosLinks = <String>[
   "https://kulturalnemedia.pl/wp-content/uploads/2018/08/splash.jpg",

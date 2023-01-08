@@ -1,7 +1,7 @@
 {
-    "@CORE": {},
-    "core_loading": "Loading...",
-    "core_next_step": "Next step",
+    "@common": {},
+    "common_loading": "Loading...",
+    "common_next_step": "Next step",
     "@WELCOME_SCREEN": {},
     "welcome_title": "BandMate",
     "welcome_button_login": "Login",

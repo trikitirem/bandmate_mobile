@@ -1,7 +1,7 @@
 import 'package:hive/hive.dart';
 // ignore: depend_on_referenced_packages
 import 'package:json_annotation/json_annotation.dart';
-import 'package:mobile/core/models/musician/about.dart';
+import 'package:mobile/common/models/musician/about.dart';
 
 import 'name.dart';
 

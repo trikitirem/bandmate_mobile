@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/core/models/musician/name.dart';
+import 'package:mobile/common/models/musician/name.dart';
 import 'package:mobile/features/swiping/view/components/musician_card/interests/interests_row.dart';
 
-import '../../../../../../core/models/musician/about.dart';
+import '../../../../../../common/models/musician/about.dart';
 
 class MusicianAbout extends StatelessWidget {
   const MusicianAbout({

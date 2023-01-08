@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/core/components/input/button.dart';
+import 'package:mobile/common/components/input/button.dart';
 import 'package:mobile/features/home/provider/user_provider.dart';
 import 'package:mobile/features/welcome/view/welcome_screen.dart';
 import 'package:provider/provider.dart';

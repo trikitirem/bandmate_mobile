@@ -1,6 +1,6 @@
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:mobile/core/models/musician/musician.dart';
-import 'package:mobile/core/models/tokens.dart';
+import 'package:mobile/common/models/musician/musician.dart';
+import 'package:mobile/common/models/tokens.dart';
 
 class CacheKeys {
   static String tokens = "tokens";

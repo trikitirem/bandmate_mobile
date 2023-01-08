@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/features/home/view/home_screen.dart';
-import '../../../core/components/input/form_text_input.dart';
+import '../../../common/components/input/form_text_input.dart';
 import '../models/login.dart';
 import '../provider/login_provider.dart';
-import '../../../core/components/input/button.dart';
+import '../../../common/components/input/button.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -86,7 +86,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   right: 0,
                   child: Button(
                     label: loginProvider.loading == true
-                        ? localizations.core_loading
+                        ? localizations.common_loading
                         : localizations.login_button,
                     onClick: () => context.read<LoginProvider>().login(
                       _formData,

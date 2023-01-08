@@ -35,7 +35,7 @@ class _WelcomeComponentState extends State<WelcomeComponent> {
 
     if (welcomeProvider.loading) {
       return Center(
-        child: Text(localizations.core_loading),
+        child: Text(localizations.common_loading),
       );
     }
 

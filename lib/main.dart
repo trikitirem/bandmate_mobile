@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/core/utils/local_storage.dart';
+import 'package:mobile/common/utils/local_storage.dart';
 import 'features/home/view/home_screen.dart';
 import 'features/home/provider/user_provider.dart';
 import 'features/login/view/login_screen.dart';

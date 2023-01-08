@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../../../core/components/input/button.dart';
-import '../../../../core/components/input/form_text_input.dart';
-import '../../../../core/components/text/error_message.dart';
+import '../../../../common/components/input/button.dart';
+import '../../../../common/components/input/form_text_input.dart';
+import '../../../../common/components/text/error_message.dart';
 import '../../provider/register_provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../../types/steps.dart';
@@ -82,7 +82,7 @@ class RegisterStep1 extends StatelessWidget {
               left: 0,
               right: 0,
               child: Button(
-                label: localizations.core_next_step,
+                label: localizations.common_next_step,
                 onClick: () => setStep(RegisterSteps.step2),
               ),
             ),

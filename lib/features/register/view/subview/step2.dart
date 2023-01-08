@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/core/components/input/multi_select/multi_select.dart';
-import 'package:mobile/core/components/input/text_area.dart';
-import 'package:mobile/core/components/text/error_message.dart';
+import 'package:mobile/common/components/input/multi_select/multi_select.dart';
+import 'package:mobile/common/components/input/text_area.dart';
+import 'package:mobile/common/components/text/error_message.dart';
 import 'package:mobile/features/home/view/home_screen.dart';
 import 'package:mobile/features/register/types/lists.dart';
 import 'package:provider/provider.dart';
-import '../../../../core/components/input/button.dart';
+import '../../../../common/components/input/button.dart';
 import '../../provider/register_provider.dart';
 import '../../types/steps.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -94,7 +94,7 @@ class RegisterStep2 extends StatelessWidget {
                 Expanded(
                   child: Button(
                     label: registerProvider.loading == true
-                        ? localizations.core_loading
+                        ? localizations.common_loading
                         : localizations.register_step2_submit,
                     onClick: () => registerProvider.register(() =>
                         Navigator.of(context).pushNamedAndRemoveUntil(

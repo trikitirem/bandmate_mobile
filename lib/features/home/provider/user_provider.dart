@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../core/models/musician/musician.dart';
+import '../../../common/models/musician/musician.dart';
 
 class UserProvider with ChangeNotifier {
   Musician? _musician;

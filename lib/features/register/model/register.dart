@@ -1,9 +1,9 @@
 // ignore: depend_on_referenced_packages
 import 'package:json_annotation/json_annotation.dart';
-import 'package:mobile/core/models/musician/about.dart';
-import 'package:mobile/core/models/musician/contact.dart';
+import 'package:mobile/common/models/musician/about.dart';
+import 'package:mobile/common/models/musician/contact.dart';
 
-import '../../../core/models/musician/name.dart';
+import '../../../common/models/musician/name.dart';
 
 part 'register.g.dart';
 

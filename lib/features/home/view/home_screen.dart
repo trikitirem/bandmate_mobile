@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile/features/home/view/components/bottom_navigation.dart';
 import 'package:mobile/features/profile/view/profile_screen.dart';
 import 'package:mobile/features/swiping/view/swiping_screen.dart';
 
@@ -11,13 +12,13 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _currentScreen = 0;
+  int _currentScreenIndex = 0;
 
   Widget displayCurrentScreen() {
-    switch (_currentScreen) {
+    switch (_currentScreenIndex) {
       case 0:
         return const SwipingScreen();
-      case 2:
+      case 3:
         return const ProfileScreen();
       default:
         return Container();
@@ -27,21 +28,17 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: Colors.black,
-        items: [
-          BottomNavigationBarItem(icon: Container(), label: "swiping"),
-          BottomNavigationBarItem(icon: Container(), label: "matches"),
-          BottomNavigationBarItem(icon: Container(), label: "profile"),
+      body: Column(
+        children: [
+          Expanded(child: displayCurrentScreen()),
+          BottomNavigation(
+            currendScreenIndex: _currentScreenIndex,
+            onChange: (index) => setState(() {
+              _currentScreenIndex = index;
+            }),
+          )
         ],
-        currentIndex: _currentScreen,
-        onTap: (value) {
-          setState(() {
-            _currentScreen = value;
-          });
-        },
       ),
-      body: displayCurrentScreen(),
     );
   }
 }

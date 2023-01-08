@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/core/models/musician/musician.dart';
+import 'package:mobile/common/models/musician/musician.dart';
 import 'package:mobile/features/swiping/provider/judging_provider.dart';
 import 'package:mobile/features/swiping/view/components/musician_card/interests/musician_about.dart';
 import 'package:mobile/features/swiping/view/components/musician_card/photos/musician_photos.dart';

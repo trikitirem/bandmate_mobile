@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/core/components/input/multi_select/multi_select_item.dart';
+import 'package:mobile/common/components/input/multi_select/multi_select_item.dart';
 
 class MultiSelect extends StatelessWidget {
   const MultiSelect({

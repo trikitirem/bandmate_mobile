@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../core/components/input/button.dart';
+import '../../../../common/components/input/button.dart';
 import '../../../login/view/login_screen.dart';
 import '../../../register/view/register_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
