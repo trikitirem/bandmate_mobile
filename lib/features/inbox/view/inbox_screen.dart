@@ -13,10 +13,13 @@ class InboxScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final localizations = AppLocalizations.of(context)!;
 
-    return SafeArea(
+    return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+          SizedBox(
+            height: MediaQuery.of(context).viewPadding.top + 4.0,
+          ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: Row(

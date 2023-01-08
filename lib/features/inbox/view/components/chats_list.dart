@@ -6,8 +6,13 @@ import 'package:mobile/features/inbox/view/components/chat_card.dart';
 class ChatsList extends StatelessWidget {
   const ChatsList({super.key});
 
-  List<Widget> getnerateChats() =>
-      [for (int i = 0; i < 15; i++) const ChatCard()];
+  List<Widget> getnerateChats() => [
+        for (int i = 0; i < 15; i++)
+          const Padding(
+            padding: EdgeInsets.only(bottom: 8.0),
+            child: ChatCard(),
+          )
+      ];
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +43,7 @@ class ChatsList extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 8.0),
+          ...getnerateChats()
         ],
       ),
     );
