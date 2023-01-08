@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/features/home/view/home_screen.dart';
-import '../../../core/components/input/form_text_input.dart';
+import '../../../common/components/input/form_text_input.dart';
 import '../models/login.dart';
 import '../provider/login_provider.dart';
-import '../../../core/components/input/button.dart';
+import '../../../common/components/input/button.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -19,84 +20,91 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final loading = context.watch<LoginProvider>().loading;
-    final errorMessage = context.watch<LoginProvider>().errorMessage;
+    final localizations = AppLocalizations.of(context)!;
 
     return Scaffold(
-      body: SafeArea(
-          child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Stack(
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
+      body: ChangeNotifierProvider(
+        create: (constext) => LoginProvider(context),
+        child: Builder(builder: (context) {
+          final loginProvider = context.watch<LoginProvider>();
+
+          return SafeArea(
+              child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Stack(
               children: [
-                const Hero(
-                  tag: "title",
-                  child: Material(
-                    child: Text(
-                      "Login to BandMate",
-                      textAlign: TextAlign.left,
-                      style: TextStyle(
-                        fontSize: 20.0,
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Hero(
+                      tag: "title",
+                      child: Material(
+                        child: Text(
+                          localizations.login_title,
+                          textAlign: TextAlign.left,
+                          style: const TextStyle(
+                            fontSize: 20.0,
+                          ),
+                        ),
                       ),
+                    ),
+                    const SizedBox(
+                      height: 16.0,
+                    ),
+                    FormTextInput(
+                      hintText: localizations.login_input_hint_email,
+                      onChanged: (value) => setState(() {
+                        _formData.email = value ?? "";
+                      }),
+                    ),
+                    FormTextInput(
+                      hintText: localizations.login_input_hint_password,
+                      obscure: true,
+                      onChanged: (value) => setState(() {
+                        _formData.password = value ?? "";
+                      }),
+                    ),
+                    loginProvider.errorMessage != null
+                        ? Padding(
+                            padding: const EdgeInsets.symmetric(
+                              vertical: 16.0,
+                            ),
+                            child: Text(
+                              loginProvider.errorMessage!,
+                              style: const TextStyle(
+                                color: Colors.red,
+                                fontSize: 16.0,
+                              ),
+                            ),
+                          )
+                        : Container()
+                  ],
+                ),
+                Positioned(
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  child: Button(
+                    label: loginProvider.loading == true
+                        ? localizations.common_loading
+                        : localizations.login_button,
+                    onClick: () => context.read<LoginProvider>().login(
+                      _formData,
+                      () {
+                        if (!mounted) {
+                          return;
+                        }
+                        Navigator.of(context).pushNamedAndRemoveUntil(
+                            HomeScreen.path, (route) => false);
+                      },
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 16.0,
-                ),
-                FormTextInput(
-                  hintText: "email",
-                  onChanged: (value) => setState(() {
-                    _formData.email = value ?? "";
-                  }),
-                ),
-                FormTextInput(
-                  hintText: "password",
-                  obscure: true,
-                  onChanged: (value) => setState(() {
-                    _formData.password = value ?? "";
-                  }),
-                ),
-                errorMessage != null
-                    ? Padding(
-                        padding: const EdgeInsets.symmetric(
-                          vertical: 16.0,
-                        ),
-                        child: Text(
-                          errorMessage,
-                          style: const TextStyle(
-                            color: Colors.red,
-                            fontSize: 16.0,
-                          ),
-                        ),
-                      )
-                    : Container()
               ],
             ),
-            Positioned(
-              bottom: 0,
-              left: 0,
-              right: 0,
-              child: Button(
-                label: loading == true ? "Loading..." : "Login",
-                onClick: () => context.read<LoginProvider>().login(
-                  context,
-                  _formData,
-                  () {
-                    if (!mounted) {
-                      return;
-                    }
-                    Navigator.of(context).pushNamedAndRemoveUntil(
-                        HomeScreen.path, (route) => false);
-                  },
-                ),
-              ),
-            ),
-          ],
-        ),
-      )),
+          ));
+        }),
+      ),
     );
   }
 }
