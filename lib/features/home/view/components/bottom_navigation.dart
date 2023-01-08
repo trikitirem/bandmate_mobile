@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:mobile/common/theme/color_pallete.dart';
+import 'package:mobile/common/assets/icons_paths.dart';
+import 'package:mobile/common/theme/color_palette.dart';
 
-const List<String> _assetsPaths = [
-  "assets/icons/note.svg",
-  "assets/icons/message.svg",
-  "assets/icons/group.svg",
-  "assets/icons/user.svg",
+List<String> _assetsPaths = [
+  IconPaths.note,
+  IconPaths.message,
+  IconPaths.group,
+  IconPaths.user,
 ];
 
 class BottomNavigation extends StatelessWidget {
@@ -24,9 +25,9 @@ class BottomNavigation extends StatelessWidget {
     return Material(
       elevation: 12,
       child: Container(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           border: Border(
-            top: BorderSide(color: Colors.black12),
+            top: BorderSide(color: GreyPalette.borderGrey),
           ),
         ),
         padding: const EdgeInsets.symmetric(

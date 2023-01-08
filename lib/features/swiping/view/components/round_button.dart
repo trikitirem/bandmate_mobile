@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:mobile/common/theme/color_palette.dart';
+
+const _borderRadius = BorderRadius.all(
+  Radius.circular(24.0),
+);
 
 class RoundButton extends StatelessWidget {
   const RoundButton({super.key, required this.child, required this.onClick});
@@ -11,13 +16,14 @@ class RoundButton extends StatelessWidget {
     return GestureDetector(
       onTap: onClick,
       child: Material(
-        borderRadius: const BorderRadius.all(
-          Radius.circular(999),
-        ),
-        elevation: 2,
-        child: SizedBox(
-          height: 60,
-          width: 60,
+        borderRadius: _borderRadius,
+        elevation: 1,
+        child: Container(
+          decoration: BoxDecoration(
+              borderRadius: _borderRadius,
+              border: Border.all(color: GreyPalette.borderGrey)),
+          height: 64,
+          width: 64,
           child: Center(
             child: child,
           ),

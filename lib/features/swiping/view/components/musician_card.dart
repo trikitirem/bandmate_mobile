@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:mobile/common/assets/icons_paths.dart';
 import 'package:mobile/common/models/musician/musician.dart';
 import 'package:mobile/features/swiping/provider/judging_provider.dart';
 import 'package:mobile/features/swiping/view/components/musician_card/interests/musician_about.dart';
@@ -45,8 +47,9 @@ class MusicianCard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     RoundButton(
-                      child: const Icon(
-                        Icons.music_note,
+                      child: SvgPicture.asset(
+                        IconPaths.note2,
+                        width: 32.0,
                       ),
                       onClick: () => judgingProvider.like(),
                     ),
@@ -54,7 +57,10 @@ class MusicianCard extends StatelessWidget {
                       width: 16.0,
                     ),
                     RoundButton(
-                      child: const Icon(Icons.thumb_down_alt),
+                      child: SvgPicture.asset(
+                        IconPaths.close,
+                        width: 32.0,
+                      ),
                       onClick: () => judgingProvider.dislike(),
                     ),
                   ],
