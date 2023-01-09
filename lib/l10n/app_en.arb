@@ -32,5 +32,7 @@
     "inbox_title": "Inbox",
     "inbox_new_matches": "Matches",
     "inbox_messages": "Messages",
-    "inbox_messages_new": " new"
+    "inbox_messages_new": " unread",
+    "@CHAT_SCREEN": {},
+    "chat_input_hint": "type here..."
 }

@@ -6,4 +6,7 @@ class IconPaths {
   static String user = "assets/icons/user.svg";
   static String close = "assets/icons/close.svg";
   static String search = "assets/icons/search.svg";
+  static String cheveronLeft = "assets/icons/chevron_left.svg";
+  static String settings = "assets/icons/settings.svg";
+  static String send = "assets/icons/send.svg";
 }
