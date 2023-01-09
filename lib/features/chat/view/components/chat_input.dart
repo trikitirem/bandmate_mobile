@@ -24,7 +24,7 @@ class ChatInput extends StatelessWidget {
               hintText: localizations.chat_input_hint,
             ),
           ),
-          const SizedBox(width: 16.0),
+          const SizedBox(width: 24.0),
           SvgPicture.asset(IconPaths.send)
         ],
       ),

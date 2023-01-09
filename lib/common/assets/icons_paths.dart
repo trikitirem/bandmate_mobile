@@ -9,4 +9,8 @@ class IconPaths {
   static String cheveronLeft = "assets/icons/chevron_left.svg";
   static String settings = "assets/icons/settings.svg";
   static String send = "assets/icons/send.svg";
+  static String bell = "assets/icons/bell.svg";
+  static String remove = "assets/icons/remove.svg";
+  static String shield = "assets/icons/shield.svg";
+  static String closeRing = "assets/icons/close_ring.svg";
 }

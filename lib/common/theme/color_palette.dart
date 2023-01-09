@@ -8,4 +8,5 @@ class GreyPalette {
   static Color borderGrey = Colors.black12;
   static Color backgroundGrey = const Color(0xffF0F0F0);
   static Color textGrey = const Color(0xff8D8D8D);
+  static Color darkGrey = const Color(0xff1E1E1E);
 }

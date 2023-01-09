@@ -34,5 +34,9 @@
     "inbox_messages": "Messages",
     "inbox_messages_new": " unread",
     "@CHAT_SCREEN": {},
-    "chat_input_hint": "type here..."
+    "chat_input_hint": "type here...",
+    "chat_options_notifications": "Notifications",
+    "chat_options_block": "Block",
+    "chat_options_report": "Report",
+    "chat_options_unmatch": "Unmatch"
 }

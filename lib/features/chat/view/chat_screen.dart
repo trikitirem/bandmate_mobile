@@ -12,7 +12,9 @@ class ChatScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const ChatHeader(),
+            const ChatHeader(
+              showOptionsButton: true,
+            ),
             Flexible(child: Container()),
             const ChatInput(),
           ],
