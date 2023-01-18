@@ -7,4 +7,5 @@ class UserRoutes {
 
 class MusiciansRoutes {
   static String get = '/musicians';
+  static String like = "/musicians/like";
 }

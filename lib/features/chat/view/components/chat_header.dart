@@ -46,7 +46,7 @@ class ChatHeader extends StatelessWidget {
                 ? GestureDetector(
                     onTap: () => Navigator.of(context).push(
                           MaterialPageRoute(
-                            builder: (context) => ChatOptionsScreen(),
+                            builder: (context) => const ChatOptionsScreen(),
                           ),
                         ),
                     child: SvgPicture.asset(IconPaths.settings))

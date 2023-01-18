@@ -18,10 +18,14 @@ class SwipingProvider with ChangeNotifier {
   List<Musician>? _swipes;
   List<Musician>? get swipes => _swipes;
 
+  int _currentSwipe = 0;
+  int get currentSwipe => _currentSwipe;
+
   Future loadSwipes() async {
     try {
       _errorMessage = null;
       _loading = true;
+      _currentSwipe = 0;
       notifyListeners();
 
       var response = await _httpService.getData(MusiciansRoutes.get);
@@ -39,5 +43,10 @@ class SwipingProvider with ChangeNotifier {
       _loading = false;
       notifyListeners();
     }
+  }
+
+  nextSwipe() {
+    _currentSwipe++;
+    notifyListeners();
   }
 }

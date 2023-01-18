@@ -22,6 +22,7 @@ class ProfileScreen extends StatelessWidget {
             onClick: () async {
               await you.logOut();
 
+              // ignore: use_build_context_synchronously
               Navigator.of(context).pushNamedAndRemoveUntil(
                   WelcomeScreen.path, (route) => false);
             },

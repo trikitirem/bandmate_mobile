@@ -30,18 +30,19 @@ class ChatOptionsScreen extends StatelessWidget {
           type: ChatOptionType.warning)
     ];
 
-    List<Widget> buildOptions() => [
-          for (var option in options)
-            ChatOptionWidget(
-              option: option,
-            )
-        ];
-
     return Scaffold(
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [const ChatHeader(), ...buildOptions()],
+          children: [
+            const ChatHeader(),
+            ...[
+              for (var option in options)
+                ChatOptionWidget(
+                  option: option,
+                )
+            ]
+          ],
         ),
       ),
     );

@@ -34,6 +34,7 @@ class MyApp extends StatelessWidget {
           LoginScreen.path: (context) => const LoginScreen()
         },
         initialRoute: WelcomeScreen.path,
+        theme: ThemeData(fontFamily: "Quicksand"),
       ),
     );
   }

@@ -38,5 +38,10 @@
     "chat_options_notifications": "Notifications",
     "chat_options_block": "Block",
     "chat_options_report": "Report",
-    "chat_options_unmatch": "Unmatch"
+    "chat_options_unmatch": "Unmatch",
+    "@SWIPING_SCREEN": {},
+    "swiping_its_all_for_now": "It's all for now",
+    "swiping_match_title": "It's a match",
+    "swiping_match_you_matched": "You matched with ",
+    "swiping_match_write_message": "Write a message!"
 }
